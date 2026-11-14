@@ -1,0 +1,13 @@
+# Tools and intermediate work files (large, and made again by the scripts)
+tools/
+work/
+# Earlier versions of the model
+output/*_archive/
+renders/*_archive/
+# Handoff package from the earlier session (large; its reports contain local file paths)
+inputs/handoff/
+inputs/previous_attempts/
+inputs/failure_reports/
+inputs/base_mesh/
+*.blend1
+__pycache__/
