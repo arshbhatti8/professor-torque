@@ -1,0 +1,12 @@
+Blender Studio CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+
+The Blender Studio Human Base Meshes bundle included in this package is dedicated to the public domain under the Creative Commons Zero (CC0 1.0) Universal license.
+
+You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+
+Official Origin: Blender Studio (https://studio.blender.org/pipeline/assets/base-meshes/)
+Bundle Version: 1.4.1
+Files:
+- human-base-meshes-bundle-v1.4.1.zip
+- human_base_meshes_bundle.blend
+Base Mesh Used for Professor Torque: GEO-body_male_stylized (Articulated 5-finger hands, clean quad topology, anatomical facial edge loops).

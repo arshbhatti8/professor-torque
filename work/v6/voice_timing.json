@@ -1,0 +1,176 @@
+{
+ "text": "Hello! I am Professor Torque. Welcome to Tiny Torque. Tiny machines, real satisfaction! Today, we will see how a gear works.",
+ "voice": "am_michael",
+ "sample_rate": 24000,
+ "duration": 15.15,
+ "words": [
+  {
+   "text": "Hello",
+   "phonemes": "həlˈO",
+   "start": 0.9,
+   "end": 1.625
+  },
+  {
+   "text": "!",
+   "phonemes": "!",
+   "start": 1.625,
+   "end": 1.85
+  },
+  {
+   "text": "I",
+   "phonemes": "ˌI",
+   "start": 2.63,
+   "end": 2.817
+  },
+  {
+   "text": "am",
+   "phonemes": "ɐm",
+   "start": 2.817,
+   "end": 2.98
+  },
+  {
+   "text": "Professor",
+   "phonemes": "pɹəfˈɛsəɹ",
+   "start": 2.98,
+   "end": 3.518
+  },
+  {
+   "text": "Torque",
+   "phonemes": "tˈɔɹk",
+   "start": 3.518,
+   "end": 4.255
+  },
+  {
+   "text": ".",
+   "phonemes": ".",
+   "start": 4.255,
+   "end": 4.455
+  },
+  {
+   "text": "Welcome",
+   "phonemes": "wˈɛlkəm",
+   "start": 5.26,
+   "end": 5.685
+  },
+  {
+   "text": "to",
+   "phonemes": "tə",
+   "start": 5.685,
+   "end": 5.823
+  },
+  {
+   "text": "Tiny",
+   "phonemes": "tˈIni",
+   "start": 5.823,
+   "end": 6.248
+  },
+  {
+   "text": "Torque",
+   "phonemes": "tˈɔɹk",
+   "start": 6.248,
+   "end": 7.01
+  },
+  {
+   "text": ".",
+   "phonemes": ".",
+   "start": 7.01,
+   "end": 7.21
+  },
+  {
+   "text": "Tiny",
+   "phonemes": "tˈIni",
+   "start": 7.965,
+   "end": 8.253
+  },
+  {
+   "text": "machines",
+   "phonemes": "məʃˈinz",
+   "start": 8.253,
+   "end": 8.94
+  },
+  {
+   "text": ",",
+   "phonemes": ",",
+   "start": 8.94,
+   "end": 9.027
+  },
+  {
+   "text": "real",
+   "phonemes": "ɹˈiᵊl",
+   "start": 9.027,
+   "end": 9.34
+  },
+  {
+   "text": "satisfaction",
+   "phonemes": "sˌæTəsfˈækʃən",
+   "start": 9.34,
+   "end": 10.54
+  },
+  {
+   "text": "!",
+   "phonemes": "!",
+   "start": 10.54,
+   "end": 10.715
+  },
+  {
+   "text": "Today",
+   "phonemes": "tədˈA",
+   "start": 11.47,
+   "end": 11.895
+  },
+  {
+   "text": ",",
+   "phonemes": ",",
+   "start": 11.895,
+   "end": 11.97
+  },
+  {
+   "text": "we",
+   "phonemes": "wi",
+   "start": 11.97,
+   "end": 12.12
+  },
+  {
+   "text": "will",
+   "phonemes": "wɪl",
+   "start": 12.12,
+   "end": 12.283
+  },
+  {
+   "text": "see",
+   "phonemes": "sˈi",
+   "start": 12.283,
+   "end": 12.495
+  },
+  {
+   "text": "how",
+   "phonemes": "hˌW",
+   "start": 12.495,
+   "end": 12.658
+  },
+  {
+   "text": "a",
+   "phonemes": "ɐ",
+   "start": 12.658,
+   "end": 12.758
+  },
+  {
+   "text": "gear",
+   "phonemes": "ɡˈɪɹ",
+   "start": 12.758,
+   "end": 13.07
+  },
+  {
+   "text": "works",
+   "phonemes": "wˈɜɹks",
+   "start": 13.07,
+   "end": 13.795
+  },
+  {
+   "text": ".",
+   "phonemes": ".",
+   "start": 13.795,
+   "end": 13.97
+  }
+ ]
+}

@@ -1,11 +1,23 @@
-# Tools and intermediate work files (large, and made again by the scripts)
+# Tools (large, and installed again on each computer)
 tools/
-work/
+# Intermediate work files (large, and made again by the scripts)
+work/*
+# These work files are kept: the AI mesh steps cannot make them again the same way
+!work/references/
+!work/v3/
+work/v3/*
+!work/v3/body_f_cm.glb
+!work/v4/
+work/v4/*
+!work/v4/head_hi1_cm.glb
+!work/v4/base_hand.blend
+!work/v6/
+work/v6/*
+!work/v6/voice_timing.json
 # Earlier versions of the model
 output/*_archive/
 renders/*_archive/
-# Handoff package from the earlier session (large; its reports contain local file paths)
-inputs/handoff/
+# Other inputs from the earlier session
 inputs/previous_attempts/
 inputs/failure_reports/
 inputs/base_mesh/

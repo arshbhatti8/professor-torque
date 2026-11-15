@@ -1,0 +1,1498 @@
+{
+  "metadata": {
+    "mission": "TT-PROFESSOR-TORQUE-PROFESSIONAL-MULTI-AGENT-CHARACTER-STUDIO-01",
+    "lead_agent": "Agent 2 (Reference Analysis Specialist)",
+    "unit": "meters",
+    "reference_inventory": {
+      "canonical_hero": {
+        "filename": "canonical_hero.jpg",
+        "width": 958,
+        "height": 1024,
+        "diagonal": 1402.26,
+        "format": "JPEG",
+        "sha256": "7AC72FBAB620A5ECA7195A4D7B6E277C9D13E8F807B8F6844F2ECB8A730C6F3A"
+      },
+      "facial_sheet": {
+        "filename": "professor_torque_facial_reference_sheet.jpg",
+        "width": 1376,
+        "height": 768,
+        "diagonal": 1575.82,
+        "format": "JPEG",
+        "sha256": "1D70ACDFB3ECA5EC00DD017C2AFA15E02E0D2513BE304CD7A21671D20F033B8C"
+      },
+      "rigging_sheet": {
+        "filename": "professor_torque_rigging_pose_sheet.jpg",
+        "width": 1376,
+        "height": 768,
+        "diagonal": 1575.82,
+        "format": "JPEG",
+        "sha256": "6704F50823A93A3DF13CBA8F6788EBB3B0980B4786AE39742E7AAF79855AE3CD"
+      },
+      "side_profile": {
+        "filename": "face_closeup_side_profile_90deg.png",
+        "width": 460,
+        "height": 768,
+        "diagonal": 895.22,
+        "format": "PNG",
+        "sha256": "CE24A7CA916FDBBF8CBE61E201624B978D32F8863E1861FB90D1967050436FD3"
+      },
+      "pose_t_pose": {
+        "filename": "pose_t_pose_fullbody.png",
+        "width": 688,
+        "height": 768,
+        "diagonal": 1031.1,
+        "format": "PNG",
+        "sha256": "6B5A3A700DB9381FF05501CC7FD085C2903E20D43E8FE37A68E16B12FDFEDFDE"
+      },
+      "pose_a_pose": {
+        "filename": "pose_a_pose_fullbody.png",
+        "width": 688,
+        "height": 768,
+        "diagonal": 1031.1,
+        "format": "PNG",
+        "sha256": "5815E8499F174E1A24E4B18833482964070F09C582149374B181B133F1781AE7"
+      }
+    }
+  },
+  "canonical_hero_landmarks": {
+    "turban_apex": {
+      "name": "turban_apex",
+      "image_coordinates_px": [
+        478,
+        148
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.144531
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 1.0,
+      "visibility": "visible",
+      "measurement_methodology": "direct_peak",
+      "region": "turban",
+      "importance_weight": 2.5,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.84
+      }
+    },
+    "turban_left_bound": {
+      "name": "turban_left_bound",
+      "image_coordinates_px": [
+        412,
+        226
+      ],
+      "normalized_coordinates": [
+        0.430063,
+        0.220703
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "silhouette_extremum",
+      "region": "turban",
+      "importance_weight": 2.5,
+      "world_target_meters": {
+        "X": -0.1456,
+        "Z": 1.6679
+      }
+    },
+    "turban_right_bound": {
+      "name": "turban_right_bound",
+      "image_coordinates_px": [
+        546,
+        222
+      ],
+      "normalized_coordinates": [
+        0.569937,
+        0.216797
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "silhouette_extremum",
+      "region": "turban",
+      "importance_weight": 2.5,
+      "world_target_meters": {
+        "X": 0.15,
+        "Z": 1.6767
+      }
+    },
+    "turban_brow_rim_center": {
+      "name": "turban_brow_rim_center",
+      "image_coordinates_px": [
+        478,
+        245
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.239258
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "dastar_larh_v_junction",
+      "region": "turban",
+      "importance_weight": 2.5,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.626
+      }
+    },
+    "patka_top": {
+      "name": "patka_top",
+      "image_coordinates_px": [
+        478,
+        248
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.242188
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "fabric_boundary",
+      "region": "head_silhouette",
+      "importance_weight": 2.5,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.6194
+      }
+    },
+    "patka_bottom": {
+      "name": "patka_bottom",
+      "image_coordinates_px": [
+        478,
+        258
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.251953
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "forehead_junction",
+      "region": "head_silhouette",
+      "importance_weight": 2.5,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.5973
+      }
+    },
+    "forehead_center": {
+      "name": "forehead_center",
+      "image_coordinates_px": [
+        478,
+        255
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.249023
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.85,
+      "visibility": "estimated",
+      "measurement_methodology": "mid_brow_interpolation",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.6039
+      }
+    },
+    "eyebrow_left": {
+      "name": "eyebrow_left",
+      "image_coordinates_px": [
+        446,
+        260
+      ],
+      "normalized_coordinates": [
+        0.465553,
+        0.253906
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "pupillary_line_alignment",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": -0.0706,
+        "Z": 1.5929
+      }
+    },
+    "eyebrow_right": {
+      "name": "eyebrow_right",
+      "image_coordinates_px": [
+        512,
+        260
+      ],
+      "normalized_coordinates": [
+        0.534447,
+        0.253906
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "pupillary_line_alignment",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.075,
+        "Z": 1.5929
+      }
+    },
+    "eye_left_center": {
+      "name": "eye_left_center",
+      "image_coordinates_px": [
+        448,
+        274
+      ],
+      "normalized_coordinates": [
+        0.467641,
+        0.267578
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "corneal_catchlight_center",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": -0.0662,
+        "Z": 1.562
+      }
+    },
+    "eye_right_center": {
+      "name": "eye_right_center",
+      "image_coordinates_px": [
+        512,
+        274
+      ],
+      "normalized_coordinates": [
+        0.534447,
+        0.267578
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "corneal_catchlight_center",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.075,
+        "Z": 1.562
+      }
+    },
+    "glasses_frame_left": {
+      "name": "glasses_frame_left",
+      "image_coordinates_px": [
+        428,
+        274
+      ],
+      "normalized_coordinates": [
+        0.446764,
+        0.267578
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "outer_rim_extremum",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": -0.1103,
+        "Z": 1.562
+      }
+    },
+    "glasses_frame_right": {
+      "name": "glasses_frame_right",
+      "image_coordinates_px": [
+        532,
+        274
+      ],
+      "normalized_coordinates": [
+        0.555324,
+        0.267578
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "outer_rim_extremum",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.1191,
+        "Z": 1.562
+      }
+    },
+    "glasses_bridge": {
+      "name": "glasses_bridge",
+      "image_coordinates_px": [
+        478,
+        274
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.267578
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "nasion_nasal_saddle",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.562
+      }
+    },
+    "nose_bridge": {
+      "name": "nose_bridge",
+      "image_coordinates_px": [
+        478,
+        282
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.275391
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "rhinion_landmark",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.5444
+      }
+    },
+    "nose_tip": {
+      "name": "nose_tip",
+      "image_coordinates_px": [
+        478,
+        298
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.291016
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "pronasale_landmark",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.5091
+      }
+    },
+    "moustache_center": {
+      "name": "moustache_center",
+      "image_coordinates_px": [
+        478,
+        308
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.300781
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "philtrum_midline",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.487
+      }
+    },
+    "moustache_curl_left": {
+      "name": "moustache_curl_left",
+      "image_coordinates_px": [
+        432,
+        302
+      ],
+      "normalized_coordinates": [
+        0.450939,
+        0.294922
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "lateral_cheilion_curl",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": -0.1015,
+        "Z": 1.5002
+      }
+    },
+    "moustache_curl_right": {
+      "name": "moustache_curl_right",
+      "image_coordinates_px": [
+        528,
+        302
+      ],
+      "normalized_coordinates": [
+        0.551148,
+        0.294922
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "lateral_cheilion_curl",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.1103,
+        "Z": 1.5002
+      }
+    },
+    "mouth_center": {
+      "name": "mouth_center",
+      "image_coordinates_px": [
+        478,
+        318
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.310547
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.85,
+      "visibility": "estimated",
+      "measurement_methodology": "labial_fissure_center",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.4649
+      }
+    },
+    "chin_center": {
+      "name": "chin_center",
+      "image_coordinates_px": [
+        478,
+        342
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.333984
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "gnathion_soft_tissue",
+      "region": "face",
+      "importance_weight": 3.0,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.412
+      }
+    },
+    "jaw_left": {
+      "name": "jaw_left",
+      "image_coordinates_px": [
+        438,
+        324
+      ],
+      "normalized_coordinates": [
+        0.457203,
+        0.316406
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "gonion_silhouette",
+      "region": "head_silhouette",
+      "importance_weight": 2.5,
+      "world_target_meters": {
+        "X": -0.0882,
+        "Z": 1.4517
+      }
+    },
+    "jaw_right": {
+      "name": "jaw_right",
+      "image_coordinates_px": [
+        522,
+        324
+      ],
+      "normalized_coordinates": [
+        0.544885,
+        0.316406
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "gonion_silhouette",
+      "region": "head_silhouette",
+      "importance_weight": 2.5,
+      "world_target_meters": {
+        "X": 0.0971,
+        "Z": 1.4517
+      }
+    },
+    "ear_left_center": {
+      "name": "ear_left_center",
+      "image_coordinates_px": [
+        424,
+        285
+      ],
+      "normalized_coordinates": [
+        0.442589,
+        0.27832
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.85,
+      "visibility": "visible",
+      "measurement_methodology": "tragus_landmark",
+      "region": "head_silhouette",
+      "importance_weight": 2.0,
+      "world_target_meters": {
+        "X": -0.1191,
+        "Z": 1.5377
+      }
+    },
+    "ear_right_center": {
+      "name": "ear_right_center",
+      "image_coordinates_px": [
+        536,
+        285
+      ],
+      "normalized_coordinates": [
+        0.559499,
+        0.27832
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.85,
+      "visibility": "visible",
+      "measurement_methodology": "tragus_landmark",
+      "region": "head_silhouette",
+      "importance_weight": 2.0,
+      "world_target_meters": {
+        "X": 0.128,
+        "Z": 1.5377
+      }
+    },
+    "neck_center": {
+      "name": "neck_center",
+      "image_coordinates_px": [
+        478,
+        360
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.351562
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "cervical_midline",
+      "region": "head_silhouette",
+      "importance_weight": 2.0,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.3723
+      }
+    },
+    "collar_front": {
+      "name": "collar_front",
+      "image_coordinates_px": [
+        478,
+        372
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.363281
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "sternal_notch_alignment",
+      "region": "body_proportions",
+      "importance_weight": 1.5,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.3458
+      }
+    },
+    "tie_knot": {
+      "name": "tie_knot",
+      "image_coordinates_px": [
+        478,
+        384
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.375
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "cravat_knot_centroid",
+      "region": "body_proportions",
+      "importance_weight": 1.5,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.3193
+      }
+    },
+    "tie_tip": {
+      "name": "tie_tip",
+      "image_coordinates_px": [
+        478,
+        492
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.480469
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "cravat_apex",
+      "region": "body_proportions",
+      "importance_weight": 1.5,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.0811
+      }
+    },
+    "shoulder_left": {
+      "name": "shoulder_left",
+      "image_coordinates_px": [
+        392,
+        386
+      ],
+      "normalized_coordinates": [
+        0.409186,
+        0.376953
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "acromion_extremum",
+      "region": "shoulder_line",
+      "importance_weight": 2.0,
+      "world_target_meters": {
+        "X": -0.1897,
+        "Z": 1.3149
+      }
+    },
+    "shoulder_right": {
+      "name": "shoulder_right",
+      "image_coordinates_px": [
+        566,
+        386
+      ],
+      "normalized_coordinates": [
+        0.590814,
+        0.376953
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "acromion_extremum",
+      "region": "shoulder_line",
+      "importance_weight": 2.0,
+      "world_target_meters": {
+        "X": 0.1941,
+        "Z": 1.3149
+      }
+    },
+    "chest_center": {
+      "name": "chest_center",
+      "image_coordinates_px": [
+        478,
+        420
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.410156
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "pectoral_cross_plane",
+      "region": "body_proportions",
+      "importance_weight": 1.5,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 1.2399
+      }
+    },
+    "pocket_square": {
+      "name": "pocket_square",
+      "image_coordinates_px": [
+        522,
+        432
+      ],
+      "normalized_coordinates": [
+        0.544885,
+        0.421875
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "left_breast_welt",
+      "region": "body_proportions",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": 0.0971,
+        "Z": 1.2134
+      }
+    },
+    "waist_left": {
+      "name": "waist_left",
+      "image_coordinates_px": [
+        420,
+        520
+      ],
+      "normalized_coordinates": [
+        0.438413,
+        0.507812
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "jacket_suppression_waist",
+      "region": "body_proportions",
+      "importance_weight": 1.5,
+      "world_target_meters": {
+        "X": -0.128,
+        "Z": 1.0193
+      }
+    },
+    "waist_right": {
+      "name": "waist_right",
+      "image_coordinates_px": [
+        538,
+        520
+      ],
+      "normalized_coordinates": [
+        0.561587,
+        0.507812
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "jacket_suppression_waist",
+      "region": "body_proportions",
+      "importance_weight": 1.5,
+      "world_target_meters": {
+        "X": 0.1324,
+        "Z": 1.0193
+      }
+    },
+    "jacket_hem_center": {
+      "name": "jacket_hem_center",
+      "image_coordinates_px": [
+        478,
+        560
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.546875
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "ventral_skirt_hem",
+      "region": "body_proportions",
+      "importance_weight": 1.5,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 0.931
+      }
+    },
+    "crotch": {
+      "name": "crotch",
+      "image_coordinates_px": [
+        478,
+        584
+      ],
+      "normalized_coordinates": [
+        0.498956,
+        0.570312
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "inseam_fork_plane",
+      "region": "body_proportions",
+      "importance_weight": 1.5,
+      "world_target_meters": {
+        "X": 0.0,
+        "Z": 0.8781
+      }
+    },
+    "elbow_left": {
+      "name": "elbow_left",
+      "image_coordinates_px": [
+        384,
+        478
+      ],
+      "normalized_coordinates": [
+        0.400835,
+        0.466797
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "olecranon_epicondyle",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": -0.2074,
+        "Z": 1.1119
+      }
+    },
+    "elbow_right": {
+      "name": "elbow_right",
+      "image_coordinates_px": [
+        574,
+        478
+      ],
+      "normalized_coordinates": [
+        0.599165,
+        0.466797
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "olecranon_epicondyle",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": 0.2118,
+        "Z": 1.1119
+      }
+    },
+    "wrist_left": {
+      "name": "wrist_left",
+      "image_coordinates_px": [
+        390,
+        562
+      ],
+      "normalized_coordinates": [
+        0.407098,
+        0.548828
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "styloid_cuff_junction",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": -0.1941,
+        "Z": 0.9266
+      }
+    },
+    "wrist_right": {
+      "name": "wrist_right",
+      "image_coordinates_px": [
+        568,
+        562
+      ],
+      "normalized_coordinates": [
+        0.592902,
+        0.548828
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "styloid_cuff_junction",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": 0.1986,
+        "Z": 0.9266
+      }
+    },
+    "hand_left_tip": {
+      "name": "hand_left_tip",
+      "image_coordinates_px": [
+        392,
+        638
+      ],
+      "normalized_coordinates": [
+        0.409186,
+        0.623047
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "dactylion_digit_3",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": -0.1897,
+        "Z": 0.7589
+      }
+    },
+    "hand_right_tip": {
+      "name": "hand_right_tip",
+      "image_coordinates_px": [
+        566,
+        638
+      ],
+      "normalized_coordinates": [
+        0.590814,
+        0.623047
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "dactylion_digit_3",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": 0.1941,
+        "Z": 0.7589
+      }
+    },
+    "hip_left": {
+      "name": "hip_left",
+      "image_coordinates_px": [
+        430,
+        575
+      ],
+      "normalized_coordinates": [
+        0.448852,
+        0.561523
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.85,
+      "visibility": "estimated",
+      "measurement_methodology": "greater_trochanter_estimate",
+      "region": "body_proportions",
+      "importance_weight": 1.5,
+      "world_target_meters": {
+        "X": -0.1059,
+        "Z": 0.8979
+      }
+    },
+    "hip_right": {
+      "name": "hip_right",
+      "image_coordinates_px": [
+        530,
+        575
+      ],
+      "normalized_coordinates": [
+        0.553236,
+        0.561523
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.85,
+      "visibility": "estimated",
+      "measurement_methodology": "greater_trochanter_estimate",
+      "region": "body_proportions",
+      "importance_weight": 1.5,
+      "world_target_meters": {
+        "X": 0.1147,
+        "Z": 0.8979
+      }
+    },
+    "knee_left": {
+      "name": "knee_left",
+      "image_coordinates_px": [
+        444,
+        735
+      ],
+      "normalized_coordinates": [
+        0.463466,
+        0.717773
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "patellar_crease_center",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": -0.075,
+        "Z": 0.5449
+      }
+    },
+    "knee_right": {
+      "name": "knee_right",
+      "image_coordinates_px": [
+        516,
+        735
+      ],
+      "normalized_coordinates": [
+        0.538622,
+        0.717773
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "patellar_crease_center",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": 0.0838,
+        "Z": 0.5449
+      }
+    },
+    "ankle_left": {
+      "name": "ankle_left",
+      "image_coordinates_px": [
+        450,
+        915
+      ],
+      "normalized_coordinates": [
+        0.469729,
+        0.893555
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "trouser_break_cuff",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": -0.0618,
+        "Z": 0.1478
+      }
+    },
+    "ankle_right": {
+      "name": "ankle_right",
+      "image_coordinates_px": [
+        510,
+        915
+      ],
+      "normalized_coordinates": [
+        0.532359,
+        0.893555
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "trouser_break_cuff",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": 0.0706,
+        "Z": 0.1478
+      }
+    },
+    "shoe_toe_left": {
+      "name": "shoe_toe_left",
+      "image_coordinates_px": [
+        438,
+        982
+      ],
+      "normalized_coordinates": [
+        0.457203,
+        0.958984
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "toe_cap_ground_plane",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": -0.0882,
+        "Z": 0.0
+      }
+    },
+    "shoe_heel_left": {
+      "name": "shoe_heel_left",
+      "image_coordinates_px": [
+        456,
+        960
+      ],
+      "normalized_coordinates": [
+        0.475992,
+        0.9375
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "heel_counter_plane",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": -0.0485,
+        "Z": 0.0485
+      }
+    },
+    "shoe_toe_right": {
+      "name": "shoe_toe_right",
+      "image_coordinates_px": [
+        522,
+        982
+      ],
+      "normalized_coordinates": [
+        0.544885,
+        0.958984
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "toe_cap_ground_plane",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": 0.0971,
+        "Z": 0.0
+      }
+    },
+    "shoe_heel_right": {
+      "name": "shoe_heel_right",
+      "image_coordinates_px": [
+        504,
+        960
+      ],
+      "normalized_coordinates": [
+        0.526096,
+        0.9375
+      ],
+      "reference_image": "canonical_hero.jpg",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "heel_counter_plane",
+      "region": "limbs",
+      "importance_weight": 1.0,
+      "world_target_meters": {
+        "X": 0.0574,
+        "Z": 0.0485
+      }
+    }
+  },
+  "side_profile_depth_landmarks": {
+    "turban_apex_side": {
+      "name": "turban_apex_side",
+      "image_coordinates_px": [
+        252,
+        62
+      ],
+      "normalized_coordinates": [
+        0.547826,
+        0.080729
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 1.0,
+      "visibility": "visible",
+      "measurement_methodology": "sagittal_apex",
+      "world_target_meters": {
+        "Y": -0.0315
+      }
+    },
+    "turban_front_rim": {
+      "name": "turban_front_rim",
+      "image_coordinates_px": [
+        185,
+        225
+      ],
+      "normalized_coordinates": [
+        0.402174,
+        0.292969
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "dastar_anterior_rim",
+      "world_target_meters": {
+        "Y": -0.0955
+      }
+    },
+    "turban_rear_max": {
+      "name": "turban_rear_max",
+      "image_coordinates_px": [
+        360,
+        240
+      ],
+      "normalized_coordinates": [
+        0.782609,
+        0.3125
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "dastar_posterior_bulge",
+      "world_target_meters": {
+        "Y": 0.0717
+      }
+    },
+    "patka_front": {
+      "name": "patka_front",
+      "image_coordinates_px": [
+        182,
+        245
+      ],
+      "normalized_coordinates": [
+        0.395652,
+        0.31901
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "under_cap_profile",
+      "world_target_meters": {
+        "Y": -0.0984
+      }
+    },
+    "forehead_front": {
+      "name": "forehead_front",
+      "image_coordinates_px": [
+        180,
+        260
+      ],
+      "normalized_coordinates": [
+        0.391304,
+        0.338542
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.85,
+      "visibility": "visible",
+      "measurement_methodology": "frontal_bone_silhouette",
+      "world_target_meters": {
+        "Y": -0.1003
+      }
+    },
+    "eyebrow_front": {
+      "name": "eyebrow_front",
+      "image_coordinates_px": [
+        172,
+        275
+      ],
+      "normalized_coordinates": [
+        0.373913,
+        0.358073
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "superciliary_ridge",
+      "world_target_meters": {
+        "Y": -0.108
+      }
+    },
+    "eye_center_side": {
+      "name": "eye_center_side",
+      "image_coordinates_px": [
+        205,
+        290
+      ],
+      "normalized_coordinates": [
+        0.445652,
+        0.377604
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "corneal_lateral_profile",
+      "world_target_meters": {
+        "Y": -0.0764
+      }
+    },
+    "glasses_frame_front": {
+      "name": "glasses_frame_front",
+      "image_coordinates_px": [
+        158,
+        290
+      ],
+      "normalized_coordinates": [
+        0.343478,
+        0.377604
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "spectacle_rim_anterior",
+      "world_target_meters": {
+        "Y": -0.1213
+      }
+    },
+    "glasses_temple_rear": {
+      "name": "glasses_temple_rear",
+      "image_coordinates_px": [
+        280,
+        292
+      ],
+      "normalized_coordinates": [
+        0.608696,
+        0.380208
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "spectacle_temple_earpiece",
+      "world_target_meters": {
+        "Y": -0.0048
+      }
+    },
+    "nose_bridge_side": {
+      "name": "nose_bridge_side",
+      "image_coordinates_px": [
+        172,
+        305
+      ],
+      "normalized_coordinates": [
+        0.373913,
+        0.397135
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "rhinion_lateral_profile",
+      "world_target_meters": {
+        "Y": -0.108
+      }
+    },
+    "nose_tip_side": {
+      "name": "nose_tip_side",
+      "image_coordinates_px": [
+        138,
+        335
+      ],
+      "normalized_coordinates": [
+        0.3,
+        0.436198
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 1.0,
+      "visibility": "visible",
+      "measurement_methodology": "pronasale_anterior_apex",
+      "world_target_meters": {
+        "Y": -0.1404
+      }
+    },
+    "nose_base_side": {
+      "name": "nose_base_side",
+      "image_coordinates_px": [
+        174,
+        350
+      ],
+      "normalized_coordinates": [
+        0.378261,
+        0.455729
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "subnasale_junction",
+      "world_target_meters": {
+        "Y": -0.106
+      }
+    },
+    "moustache_tip_front": {
+      "name": "moustache_tip_front",
+      "image_coordinates_px": [
+        148,
+        365
+      ],
+      "normalized_coordinates": [
+        0.321739,
+        0.47526
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "handlebar_anterior_curl",
+      "world_target_meters": {
+        "Y": -0.1309
+      }
+    },
+    "chin_front_side": {
+      "name": "chin_front_side",
+      "image_coordinates_px": [
+        182,
+        425
+      ],
+      "normalized_coordinates": [
+        0.395652,
+        0.553385
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "pogonion_profile",
+      "world_target_meters": {
+        "Y": -0.0984
+      }
+    },
+    "beard_contour_bottom": {
+      "name": "beard_contour_bottom",
+      "image_coordinates_px": [
+        195,
+        485
+      ],
+      "normalized_coordinates": [
+        0.423913,
+        0.63151
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "gnathion_hair_silhouette",
+      "world_target_meters": {
+        "Y": -0.086
+      }
+    },
+    "ear_center_side": {
+      "name": "ear_center_side",
+      "image_coordinates_px": [
+        285,
+        315
+      ],
+      "normalized_coordinates": [
+        0.619565,
+        0.410156
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.95,
+      "visibility": "visible",
+      "measurement_methodology": "auricular_axis",
+      "world_target_meters": {
+        "Y": 0.0
+      }
+    },
+    "neck_front_side": {
+      "name": "neck_front_side",
+      "image_coordinates_px": [
+        205,
+        495
+      ],
+      "normalized_coordinates": [
+        0.445652,
+        0.644531
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "anterior_cervical_angle",
+      "world_target_meters": {
+        "Y": -0.0764
+      }
+    },
+    "neck_rear_side": {
+      "name": "neck_rear_side",
+      "image_coordinates_px": [
+        305,
+        480
+      ],
+      "normalized_coordinates": [
+        0.663043,
+        0.625
+      ],
+      "reference_image": "face_closeup_side_profile_90deg.png",
+      "confidence": 0.9,
+      "visibility": "visible",
+      "measurement_methodology": "nuchal_line_posterior",
+      "world_target_meters": {
+        "Y": 0.0191
+      }
+    }
+  }
+}

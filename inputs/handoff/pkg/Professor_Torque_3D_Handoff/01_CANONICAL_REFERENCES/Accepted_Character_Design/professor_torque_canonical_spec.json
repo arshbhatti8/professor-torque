@@ -1,0 +1,444 @@
+{
+  "schema_version": "1.0.0",
+  "mission_id": "TT-PROFESSOR-TORQUE-CHARACTER-DEVELOPMENT-01",
+  "status": "DESIGN_SPEC_COMPLETE_AWAITING_HUMAN_OWNER_REVIEW",
+  "character_identity": {
+    "name": "Professor Torque",
+    "role": "Permanent Educational Presenter",
+    "persona_traits_observed_on_sheet": [
+      "Engineer",
+      "Educator",
+      "Curious",
+      "Friendly",
+      "Enthusiastic"
+    ],
+    "identity_summary": "Friendly Sikh male professor and master mechanic, tall lean adult male proportions, deep crimson/magenta Dastar turban with black center undercap, dark rectangular glasses, expressive dark eyebrows, neatly shaped black jawline beard and upward-curled handlebar moustache, olive-green tailored suit, white shirt, navy tie with thin diagonal red-orange and cream/white stripes, dark navy pocket square, brown leather belt, watch on left wrist with brown strap, brown lace-up leather dress shoes.",
+    "canonical_reference_image": {
+      "path": "C:/Users/snavr/.gemini/antigravity/brain/7dd716eb-4eef-4cd2-b9af-277379063e40/.user_uploaded/media_1794390580256_f9a4cd8f.jpg",
+      "resolution_px": {
+        "width": 958,
+        "height": 1024
+      },
+      "sha256": "7AC72FBAB620A5ECA7195A4D7B6E277C9D13E8F807B8F6844F2ECB8A730C6F3A",
+      "sheet_panels": [
+        "Hero full-body 3/4 standing view (arms crossed, workshop backdrop with TinyTorque branding)",
+        "Upper-mid panel: Pointing upward (right index raised, enthusiastic open smile)",
+        "Upper-right panel: Adjusting glasses (right hand at lower-left rim, teasing smirk, pupils partially visible)",
+        "Middle-center panel: Open-hand explanation (both palms open forward, animated speaking expression)",
+        "Middle-right panel: Thoughtful chin-rest (left arm folded supporting right elbow, fingers at chin)",
+        "Lower-center panel: Celebratory fist (right fist raised, wide grin, squinted cheerful eyes)",
+        "Lower-right panel: Back standing view (hands on hips, rear suit seam and trouser silhouette)"
+      ]
+    }
+  },
+  "visual_style_lock": {
+    "style_id": "TINYTORQUE_STYLIZED_3D_CARTOON_V1",
+    "target_aesthetic": "PREMIUM STYLIZED 3D CARTOON",
+    "prohibited_styles": [
+      "Photorealistic",
+      "Hyper-realistic",
+      "Realistic human 3D",
+      "2D illustration",
+      "Flat vector animation",
+      "2.5D animation"
+    ],
+    "lighting_alignment": {
+      "key_light_kelvin": 3600,
+      "rim_light_kelvin": 5600,
+      "accent_palette": [
+        "cyan",
+        "amber"
+      ]
+    }
+  },
+  "proportions_relative": {
+    "measurement_basis": "Pixel landmark ratios observed on hero full-body standing 3/4 panel (not orthographic metric scale)",
+    "world_scale_cm_status": "MISSING_NOT_SPECIFIED_BY_CANONICAL_SHEET",
+    "observed_landmarks_px": {
+      "turban_top_y": 11,
+      "turban_center_v_y": 58,
+      "estimated_bare_skull_top_y": 40,
+      "chin_y": 168,
+      "shoulder_y": 210,
+      "waist_y": 408,
+      "crotch_y": 495,
+      "knee_y": 725,
+      "ankle_y": 925,
+      "shoe_sole_y": 976,
+      "shoulder_x_span": [232, 438]
+    },
+    "derived_ratios": {
+      "bare_head_height_px_approx": 128,
+      "bare_head_stature_px_approx": 936,
+      "stature_to_bare_head_ratio_approx": 7.3,
+      "stature_to_turbaned_head_ratio_approx": 6.15,
+      "lower_body_crotch_to_sole_pct_approx": 51.4,
+      "shoulder_width_to_bare_head_ratio_approx": 1.61
+    },
+    "silhouette_rules": [
+      "Maintain tall, lean adult male proportions (~7.3 bare-head / ~6.15 turbaned-head ratio).",
+      "Do NOT widen torso or add muscular bulk.",
+      "Do NOT shorten legs below ~50% of bare-head stature.",
+      "Preserve crisp tailored wool jacket shoulder line and slim flat-front trouser taper.",
+      "Preserve Dastar crown volume rising cleanly above forehead hairline without dwarfing face."
+    ]
+  },
+  "orthographic_reference_status": {
+    "front_view": "PRESENT_IN_3_4_HERO_ONLY_PURE_0_DEG_NEEDED",
+    "side_view": "MISSING_TRUE_90_DEG_LEFT_AND_RIGHT_PROFILES_NEEDED",
+    "back_view": "PRESENT_IN_BOTTOM_RIGHT_HANDS_ON_HIPS_NEUTRAL_ARMS_NEEDED",
+    "t_pose_or_a_pose": "MISSING_REQUIRED_BEFORE_RIGGING",
+    "face_neutral_no_glasses": "MISSING_REQUIRED_FOR_BLINK_AND_UPPER_LID_MODELING"
+  },
+  "color_and_material_spec": {
+    "sampling_note": "Hex swatches sampled directly from canonical JPEG patches illuminated by studio lighting; unlit PBR base albedos require flat-chart confirmation.",
+    "elements": [
+      {
+        "part": "Turban (Dastar)",
+        "color_description": "Deep crimson / magenta wool-cotton wrap with clean diagonal layered folds",
+        "sampled_hex": {
+          "mid_lit": "#96033A",
+          "fold_shadow": "#710122",
+          "deep_crease": "#6C0122"
+        },
+        "shader_intent": "Soft stylized woven cloth (matte sheen, subtle fabric micro-bump, no wet specular)"
+      },
+      {
+        "part": "Undercap (Patka triangle)",
+        "color_description": "Matte black triangular undercap peeking cleanly at center forehead V",
+        "sampled_hex": {
+          "qualitative": "Matte black (exact flat albedo uncalibrated)"
+        },
+        "shader_intent": "Tight matte cotton knit, high roughness"
+      },
+      {
+        "part": "Skin",
+        "color_description": "Warm medium-tan South Asian skin tone with smooth subsurface warmth",
+        "sampled_hex": {
+          "forehead_key_lit": "#FDC09A",
+          "cheek_mid_shadow": "#582B1B"
+        },
+        "shader_intent": "Stylized SSS skin shader, soft specular on nose bridge and cheekbones, zero pore hyper-realism"
+      },
+      {
+        "part": "Beard, Moustache & Eyebrows",
+        "color_description": "Deep espresso-black neatly sculpted jawline beard + upward-curled handlebar moustache + expressive thick arched brows",
+        "sampled_hex": {
+          "dark_strand_mid": "#3E2E2A",
+          "deep_shadow": "#321C14"
+        },
+        "shader_intent": "Stylized sculpted hair mass + clean strand cards/groom clumps (no noisy individual fuzz)"
+      },
+      {
+        "part": "Glasses Frame & Lenses",
+        "color_description": "Dark charcoal-black rectangular frames; currently dark-tinted lenses on sheet",
+        "sampled_hex": {
+          "qualitative": "Dark matte/satin acetate frame; dark-tinted optical lens (CRITICAL OPEN DECISION: clear/<=10% tint recommended for eye animation)"
+        },
+        "shader_intent": "Satin acetate/polymer frame; crisp thin optical glass with anti-reflective rim catchlight"
+      },
+      {
+        "part": "Suit Jacket & Trousers",
+        "color_description": "Olive-green two-button tailored wool suit with notched lapels and slim trousers",
+        "sampled_hex": {
+          "lit_wool": "#595D44",
+          "mid_shadow": "#464227",
+          "trouser_mid": "#504F31"
+        },
+        "shader_intent": "Tailored fine wool weave with soft grazing sheen and crisp stylized edge bevels"
+      },
+      {
+        "part": "Dress Shirt",
+        "color_description": "Crisp white collared shirt",
+        "sampled_hex": {
+          "lit_white": "#FAF0F8"
+        },
+        "shader_intent": "Clean matte cotton poplin (subtle cool-warm bounce tint)"
+      },
+      {
+        "part": "Necktie",
+        "color_description": "Dark navy tie with thin diagonal red-orange and cream/white stripes",
+        "sampled_hex": {
+          "navy_field": "#27314F",
+          "stripe_note": "Diagonal reddish-orange & cream stripes observed qualitatively; pure isolated stripe hex requires close-up textile swatch"
+        },
+        "shader_intent": "Subtle woven silk satin sheen"
+      },
+      {
+        "part": "Pocket Square",
+        "color_description": "Dark navy crisp triangular fold in left breast pocket",
+        "sampled_hex": {
+          "qualitative": "Dark navy matching tie base (compressed crop shows slight olive bounce #464C38)"
+        },
+        "shader_intent": "Soft matte silk/linen fold"
+      },
+      {
+        "part": "Belt & Leather Watch Strap",
+        "color_description": "Dark brown leather belt with metal buckle; left-wrist watch with brown strap and dark/gold-accented bezel",
+        "sampled_hex": {
+          "belt_leather": "#442A22"
+        },
+        "shader_intent": "Semi-gloss burnished leather + brushed brass/gold hardware"
+      },
+      {
+        "part": "Dress Shoes",
+        "color_description": "Rich cognac/espresso brown lace-up Derby/Oxford shoes with stitched welt and stacked heel",
+        "sampled_hex": {
+          "leather_mid": "#421D0A",
+          "toe_specular": "#9D785A"
+        },
+        "shader_intent": "Polished stylized calfskin leather with clean toe-cap highlight"
+      }
+    ]
+  },
+  "facial_expressions_spec": [
+    {
+      "id": "expr_01_friendly_smile",
+      "name": "Friendly smile",
+      "canonical_sheet_match": "Hero full-body standing panel",
+      "emotional_alignment": "ADMIRATION / SATISFACTION",
+      "brows": "Relaxed symmetric gentle arch",
+      "eyes": "Warm attentive gaze; slight lower-lid crinkle (AU6 soft)",
+      "mouth": "Closed-lip or slight upper-tooth friendly smile; curled moustache lifts symmetrically",
+      "head_posture": "Upright, slight welcoming tilt (3-5 deg)"
+    },
+    {
+      "id": "expr_02_excitement",
+      "name": "Excitement",
+      "canonical_sheet_match": "Pointing upward panel / Celebratory fist panel",
+      "emotional_alignment": "EXCITEMENT",
+      "brows": "Raised high inner and outer brows (AU1+AU2)",
+      "eyes": "Wide bright eyes catching crisp key-light glint",
+      "mouth": "Open energetic smile showing upper teeth cleanly without jaw hyper-drop",
+      "head_posture": "Forward lean 5-8 deg with energetic lift"
+    },
+    {
+      "id": "expr_03_curiosity",
+      "name": "Curiosity",
+      "canonical_sheet_match": "Extension of Open-hand / Adjusting-glasses inquisitiveness",
+      "emotional_alignment": "CURIOSITY",
+      "brows": "Asymmetric quizzical lift (one brow +30%, opposite neutral)",
+      "eyes": "Focused pupil lock onto engine detail",
+      "mouth": "Subtle asymmetrical half-smile or relaxed slightly parted lips",
+      "head_posture": "Head cocked 7-10 deg toward mechanical cutaway"
+    },
+    {
+      "id": "expr_04_surprise",
+      "name": "Surprise",
+      "canonical_sheet_match": "Derived from Pointing upward high-energy peak",
+      "emotional_alignment": "SURPRISE / AMAZEMENT",
+      "brows": "Sudden peak brow raise (AU1+AU2 maximum clean threshold)",
+      "eyes": "Upper lid pulled slightly above iris top rim",
+      "mouth": "Rounded O-shape or crisp gasp parting without breaking beard seam",
+      "head_posture": "Quick recoil backward 3-5 cm then forward focus"
+    },
+    {
+      "id": "expr_05_confusion",
+      "name": "Confusion",
+      "canonical_sheet_match": "New presenter acting target",
+      "emotional_alignment": "SUSPENSE (diagnostic question)",
+      "brows": "Inner brows drawn together and furrowed lightly (AU4) with one brow mildly raised",
+      "eyes": "Narrowed inquisitive squint",
+      "mouth": "Pressed subtle flat/wry curve with asymmetrical corner tuck",
+      "head_posture": "Slight chin tuck + lateral tilt while inspecting faulty component"
+    },
+    {
+      "id": "expr_06_serious_explanation",
+      "name": "Serious explanation",
+      "canonical_sheet_match": "Controlled didactic anchor (adapted from hero poise)",
+      "emotional_alignment": "CONFIDENCE / FASCINATION",
+      "brows": "Steady horizontal focus, light inner concentration",
+      "eyes": "Direct camera eye-line or steady target lock, slow deliberate blink cadence",
+      "mouth": "Articulate precise consonant shaping, balanced smile-free authority",
+      "head_posture": "Balanced upright spine, minimal bob"
+    },
+    {
+      "id": "expr_07_thinking",
+      "name": "Thinking",
+      "canonical_sheet_match": "Thoughtful chin-rest panel",
+      "emotional_alignment": "FASCINATION / SUSPENSE",
+      "brows": "Inner brow slight knit, slight upward outer angle",
+      "eyes": "Glance upward-diagonal (thinking saccade) before returning to viewer",
+      "mouth": "Closed relaxed lips pressed gently against index finger/thumb",
+      "head_posture": "Chin resting lightly over hand, slight downward-sideward inclination"
+    },
+    {
+      "id": "expr_08_amusement",
+      "name": "Amusement",
+      "canonical_sheet_match": "Adjusting glasses panel",
+      "emotional_alignment": "PLAYFUL HUMOUR",
+      "brows": "Knowing lifted arch on one side, relaxed warmth on other",
+      "eyes": "Warm half-smile squint clearly readable behind clear/light-tint glasses",
+      "mouth": "Confident asymmetrical smirk curving beneath curled moustache",
+      "head_posture": "Slight chin drop peering playfully over glasses rim"
+    },
+    {
+      "id": "expr_09_concern",
+      "name": "Concern",
+      "canonical_sheet_match": "New safety/failure diagnostic expression",
+      "emotional_alignment": "SUSPENSE (cautionary note)",
+      "brows": "Upward inner-brow pinch (AU1+AU4 empathy shape) without cartoonish despair",
+      "eyes": "Attentive steady gaze toward failing mechanism",
+      "mouth": "Soft downward corner relaxation, gentle closed or cautious parted cadence",
+      "head_posture": "Slight forward protective lean"
+    },
+    {
+      "id": "expr_10_celebration",
+      "name": "Celebration",
+      "canonical_sheet_match": "Celebratory fist panel",
+      "emotional_alignment": "EXCITEMENT / SATISFACTION",
+      "brows": "High triumphant symmetric arch",
+      "eyes": "Happy Duchenne crescent squint",
+      "mouth": "Full radiant open grin showing upper teeth cleanly",
+      "head_posture": "Upward chest lift + energetic nod synced with fist punch"
+    }
+  ],
+  "poses_and_gestures_spec": {
+    "canonical_sheet_poses": [
+      {
+        "id": "pose_01_hero_arms_crossed",
+        "name": "Arms crossed confident stance",
+        "description": "Hero 3/4 standing pose; weight lightly favored on rear leg, arms folded cleanly at chest without compressing jacket lapels, warm welcoming smile."
+      },
+      {
+        "id": "pose_02_pointing_upward",
+        "name": "Pointing upward eureka",
+        "description": "Right elbow bent close to torso, right index finger raised decisively toward top-left callout/diagram, left hand relaxed."
+      },
+      {
+        "id": "pose_03_adjusting_glasses",
+        "name": "Adjusting glasses",
+        "description": "Right thumb and index/middle fingers lightly gripping outer-lower frame rim; wry knowing expression."
+      },
+      {
+        "id": "pose_04_open_hand_explanation",
+        "name": "Open-hand two-palm explanation",
+        "description": "Both forearms raised forward around chest/rib height, fingers naturally splayed and curved upward welcomingly."
+      },
+      {
+        "id": "pose_05_thoughtful_chin_rest",
+        "name": "Thoughtful chin-rest",
+        "description": "Left forearm crossed horizontally under chest supporting right elbow; right index/thumb cradling chin/beard lightly without mesh clipping."
+      },
+      {
+        "id": "pose_06_celebratory_fist",
+        "name": "Celebratory fist",
+        "description": "Right arm raised with compact crisp fist near shoulder height accompanied by joyful grin."
+      },
+      {
+        "id": "pose_07_back_hands_on_hips",
+        "name": "Back standing hands-on-hips",
+        "description": "Back-facing standing reference showing rear jacket tailoring, trouser drape, heel profile, and rounded rear Dastar folds."
+      }
+    ],
+    "additional_teaching_gestures": [
+      "Neutral relaxed standing ready pose (arms softly at sides)",
+      "T-pose and relaxed A-pose (rigging bind poses)",
+      "Sideways pointer toward adjacent 3D mechanical cutaway without crossing into machinery",
+      "Two-hand caliper / size-comparison spacing gesture",
+      "Rotational finger-circle gesture illustrating turbine/airflow spin"
+    ]
+  },
+  "blender_modelling_plan": {
+    "execution_status": "PLAN_SPEC_ONLY_NO_BLENDER_RUN_EXECUTED",
+    "recommended_stack": "Blender 4.x Clean Quad SubD Pipeline",
+    "collection_hierarchy": [
+      "PT_Root_Rig",
+      "PT_Geo_Body_Head",
+      "PT_Geo_Turban_Undercap",
+      "PT_Geo_Hair_Beard_Brows",
+      "PT_Geo_Outfit_Suit",
+      "PT_Geo_Accessories_Glasses_Watch_Belt_Shoes",
+      "PT_Light_LookDev"
+    ],
+    "topology_standards": [
+      "All-quad SubD-ready topology (no stray n-gons or poles in facial deformation loops).",
+      "Concentric circular edge loops around orbicularis oculi, nasolabial fold, and orbicularis oris (avoid mouth distortion under beard)." ,
+      "Turban modeled as overlapping sculpted/retopoed layered cloth strips over locked cranial volume so head turns never expose bald/scalp gaps.",
+      "Beard & handlebar moustache built with clean sculpted base cage locked to jaw/lip skin-wrap drivers plus layered stylized hair cards/clumps.",
+      "Suit jacket sleeves and shoulders engineered with clean deltoid bend loops and hidden shoulder-pad proxy bones to prevent lapel collapse during pointing/crossed-arm poses.",
+      "Separate shirt collar, knot-locked tie mesh, and trouser hems with clean shoe tongue-to-sock boundary."
+    ]
+  },
+  "rigging_and_facial_animation_plan": {
+    "execution_status": "PLAN_SPEC_ONLY_NO_RIG_BUILT_YET",
+    "body_rig": [
+      "IK/FK switchable arms and legs with pole targets and clean knee/elbow pin locks.",
+      "Clavicle auto-follow drivers for overhead pointing and fist-raise.",
+      "Spine FK + spline stretch-lite (minimal) to keep suit hem crisp.",
+      "Dedicated jacket-skirt / lapel / tie / pocket-square helper bones with collision constraints against chest/arms (crucial for Arms-Crossed and Chin-Rest poses).",
+      "Glasses parented to head-bridge socket with an explicit Hand-Grab space switch for Adjusting Glasses.",
+      "Turban bone pinned to head-top with subtle secondary micro-jiggle disabled by default for crisp mechanical authority."
+    ],
+    "facial_rig": [
+      "Hybrid FACS + Corrective Shape Keys + Bone-driven Jaw/Eyelids/Brows.",
+      "Synchronized beard/moustache corrective shapes tied directly to jawDrop, mouthSmile, mouthFunnel, and pucker so beard never detaches or clips chin.",
+      "Dual eye-aim target + per-eye eyelid fleshy-follow drivers + clean blink closure."
+    ]
+  },
+  "lip_sync_requirements": {
+    "phoneme_viseme_set": [
+      "Rest (Neutral)",
+      "MBP (Bilabial close)",
+      "FV (Labiodental tuck)",
+      "Th (Dental tongue peek)",
+      "L / DN (Alveolar lift)",
+      "AA / AH (Open vowel)",
+      "EE / IH (Wide spread)",
+      "OO / UW (Rounded funnel)",
+      "WQ / OH (Mid round)",
+      "CH / SH / J (Tight forward protrusion)"
+    ],
+    "performance_rules": [
+      "Align jaw/viseme timings to TinyTorque dynamic speech tiers (140-170 WPM) without chattering jaw micro-oscillations.",
+      "Preserve moustache curl silhouette cleanly during wide EE and rounded OO shapes.",
+      "Co-articulate brows and head micro-accents on stressed keywords defined in Segment Directorial Metadata."
+    ]
+  },
+  "tinytorque_integration_plan": {
+    "staging_anchor_status": {
+      "existing_model_class": "ProfessorTorqueReferenceProfile",
+      "source_file": "C:/TinyTorque-Staging/tinytorque_mvp_01/core/providers/provider_models.py",
+      "current_locked_flag": false,
+      "current_architecture_status": "EXTENSIBLE_PLACEHOLDER_NOT_PREMATURELY_FIXED",
+      "slots_available": [
+        "character_base",
+        "turnaround_sheet",
+        "clothing_outfit",
+        "facial_lock",
+        "voice_reference",
+        "gesture_reference",
+        "expression_reference",
+        "motion_video_reference"
+      ]
+    },
+    "educational_framing_rules": [
+      "Machine-as-Hero remains primary in mechanical closeups; Professor Torque serves as guide alongside cutaway/bench or in clean PIP/split framing.",
+      "Do not allow character silhouette or gestures to occlude active airflow arrows, rotor spin, or bearing cross-sections.",
+      "Maintain TINYTORQUE_STYLIZED_3D_CARTOON_V1 shader lighting consistency (3600K key / 5600K rim) between character and machinery."
+    ],
+    "deployment_gate_prerequisite": "Do NOT activate automated Professor Torque Flow video generation until renderer remediation & Omni-Flash pipeline validation pass independently and Human Owner signs off on open design decisions."
+  },
+  "consistency_validation_checklist": [
+    "1. Silhouette & ~7.3 bare-head (~6.15 turbaned-head) tall lean adult proportion preserved across camera lenses.",
+    "2. Deep crimson/magenta Dastar fold count/V-angle and black patka forehead triangle consistent front/side/back.",
+    "3. Dark rectangular glasses geometry consistent (and lens transparency rule explicitly locked).",
+    "4. Neatly trimmed black jawline beard + upward-curled handlebar moustache never detaches during wide vowels.",
+    "5. Olive-green suit lapel notch, two-button stance, slim trouser line, and brown Welt shoes match canonical palette.",
+    "6. White shirt collar + navy diagonal red-orange/cream striped tie + navy pocket square stay crisp without z-fighting.",
+    "7. Brown leather belt and left-wrist brown-strap watch present whenever wrist/waist is visible.",
+    "8. Zero photorealistic skin pores/hair noise or flat 2D outline artifacts.",
+    "9. All 10 facial expressions remain readable behind glasses and beard from 3/4 and front angles.",
+    "10. Arms-crossed and chin-rest poses have zero sleeve/chin/lapel intersection.",
+    "11. Narration lip-sync matches dynamic 140-170 WPM speech without jaw-popping.",
+    "12. Engine cutaways remain unobstructed when presenter shares frame."
+  ],
+  "missing_technical_information": [
+    "Exact world-space target stature height in cm/meters (only relative proportions measured).",
+    "True 0-deg neutral front, 90-deg left/right orthographic side profiles, and neutral-arms back turnaround.",
+    "Unoccluded facial neutral reference without glasses (upper eyelids, tear duct, nose bridge contour).",
+    "Human Owner policy decision on glasses lens opacity (preserve dark sunglasses tint vs clear/low-tint <=10% lens so eye acting/blinks stay visible).",
+    "Close-up unlit reference for left-wrist watch dial/bezel, belt buckle hardware, and sock color/shoe sole.",
+    "Exact unlit sRGB/linear albedo swatches free of studio bounce lighting (especially tie stripe exact orange-red & cream values and back jacket vent style: center vs double vs none)."
+  ]
+}

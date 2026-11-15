@@ -1,0 +1,78 @@
+{
+  "character_id": "PROFESSOR_TORQUE",
+  "version": "2.0.0",
+  "art_direction_lock": "TINYTORQUE_STYLIZED_3D_CARTOON_V1",
+  "persona": {
+    "name": "Professor Torque",
+    "role": "Workshop Mentor + Automotive Enthusiast",
+    "demographic": "Sikh adult male engineer & educator",
+    "presentation_style": "Friendly, curious, knowledgeable, articulate, animated"
+  },
+  "scale_and_proportions": {
+    "crowned_stature_m": 1.92,
+    "bare_stature_m": 1.85,
+    "head_height_bare_m": 0.25,
+    "head_height_turban_m": 0.312,
+    "shoulder_width_m": 0.415,
+    "chest_depth_m": 0.26,
+    "waist_width_m": 0.31,
+    "inseam_height_m": 0.95,
+    "arm_span_m": 1.86,
+    "foot_length_m": 0.285,
+    "stature_ratio_bare": 7.4,
+    "stature_ratio_crowned": 6.15,
+    "lower_body_percentage": 51.4
+  },
+  "materials_pbr": {
+    "skin": { "hex": "#FBBB8F", "roughness": 0.45, "subsurface": 0.08 },
+    "turban_dastar": { "hex": "#780E2B", "roughness": 0.65, "sheen": 0.3 },
+    "turban_patka": { "hex": "#151515", "roughness": 0.70 },
+    "hair_beard": { "hex": "#1A1817", "roughness": 0.55 },
+    "suit_wool": { "hex": "#5C6348", "roughness": 0.75, "subsurface": 0.02 },
+    "shirt_cotton": { "hex": "#F4F4F6", "roughness": 0.50 },
+    "necktie_silk": { "hex": "#1C2541", "roughness": 0.40, "stripes": ["#D0533C", "#EFE8D8"] },
+    "leather_brown": { "hex": "#4A2E1B", "roughness": 0.35, "clearcoat": 0.2 },
+    "glasses_frame": { "hex": "#222222", "metallic": 0.15, "roughness": 0.30 },
+    "glasses_lens": { "transmission": 0.95, "roughness": 0.05, "ior": 1.52 },
+    "wristwatch_gold": { "hex": "#C5A059", "metallic": 0.85, "roughness": 0.25 }
+  },
+  "expressions": [
+    "NEUTRAL",
+    "FRIENDLY_SMILE",
+    "EXCITEMENT",
+    "CURIOSITY",
+    "SURPRISE",
+    "SERIOUS_EXPLANATION",
+    "THINKING",
+    "AMUSEMENT",
+    "CONCERN",
+    "CELEBRATION"
+  ],
+  "visemes": [
+    "viseme_sil",
+    "viseme_PP",
+    "viseme_FF",
+    "viseme_TH",
+    "viseme_DD",
+    "viseme_kk",
+    "viseme_CH",
+    "viseme_SS",
+    "viseme_nn",
+    "viseme_RR",
+    "viseme_aa",
+    "viseme_E",
+    "viseme_I",
+    "viseme_O",
+    "viseme_U"
+  ],
+  "actions": [
+    "Action_Idle_Breathing",
+    "Action_Talking_Explaining",
+    "Action_Pointing_Upward"
+  ],
+  "canonical_reference_hashes": {
+    "hero_canonical": "7AC72FBAB620A5ECA7195A4D7B6E277C9D13E8F807B8F6844F2ECB8A730C6F3A",
+    "facial_approved": "1D70ACDFB3ECA5EC00DD017C2AFA15E02E0D2513BE304CD7A21671D20F033B8C",
+    "rigging_pose_approved": "6704F50823A93A3DF13CBA8F6788EBB3B0980B4786AE39742E7AAF79855AE3CD"
+  }
+}
