@@ -171,6 +171,9 @@ for z0 in np.arange(Z_BOT, 1.10, -0.006):                # below the last white 
     if row.sum() < 4: break
     Z_BOT = z0 - 0.004
 mid = (zr > zr.min() + 0.03) & (zr < zr.max() - 0.03); hfit = np.polyfit(zr[mid], hw[mid], 1)
+if len(argv) > 2:                                   # the AI tie is measured: now use the body texture with the clean white shirt front
+    node = next(nd for nd in body.material_slots[0].material.node_tree.nodes if nd.type == "TEX_IMAGE")
+    node.image = bpy.data.images.load(str(Path(argv[2]).resolve())); node.image.pack(); print("body texture replaced with", argv[2])
 body_tree = surface(body)
 NAVY, RED, CREAM = srgb("#1B2748"), srgb("#B9523C"), srgb("#E2DBCB")
 
@@ -201,14 +204,18 @@ goodr = ~np.isnan(r_m); r_neck = float(np.median(r_m[goodr]))
 RXc, RYc = half_w + 0.006, r_neck * 0.92 + 0.006
 print("collar: neck centre", round(CXc, 3), round(CYc, 3), "neck half width", round(half_w, 3), "collar top back/side/front", round(z_back, 3), round(z_side, 3), round(z_front, 3))
 # Remove the AI collar from the head mesh. The modelled collar replaces it.
-dropc = is_shirt & (HPc[:, 2] < z_back + 0.006)
+# Remove the AI collar, and all other head surface below the collar top line except the beard (dark, at the front).
+# The modelled collar hides this area, and rough pieces of the AI collar must not show next to it.
+line = np.array([collar_top(ph) for ph in phi_v])
+is_beard = (hl < 0.27) & (np.abs(phi_v) < 1.4)
+dropc = (is_shirt & (HPc[:, 2] < z_back + 0.006)) | ((HPc[:, 2] < line - 0.014) & ~is_beard)      # the neck skin stays 14 mm into the collar
 bm = bmesh.new(); bm.from_mesh(head.data); bm.verts.ensure_lookup_table()
 bmesh.ops.delete(bm, geom=[v for v, kd in zip(bm.verts, dropc) if kd], context="VERTS"); bm.to_mesh(head.data); bm.free()
 print("AI collar vertices removed from the head", int(dropc.sum()))
 
 # ---------------------------------------------------------------- tie
 kz1 = z_front - 0.004; kz0 = kz1 - 0.036                                # knot: top and bottom
-Z_TOP = kz0 + 0.014
+Z_TOP = kz0 + 0.016; KNOT_Y = CYc - RYc - 0.005
 def tie_centre(z): return float(np.polyval(cfit, min(z, zr.max()))) if z < zr.max() else float(np.interp(z, [zr.max(), kz1], [np.polyval(cfit, zr.max()), CXc]))
 def tie_half(z):
     base_hw = float(np.clip(np.polyval(hfit, z), 0.013, 0.034)) + 0.003
@@ -221,7 +228,10 @@ for ri in range(ROWS):
         tcol = -1 + 2 * c / (COLS - 1); x = cxz + tcol * hwz
         q, _ = front_hit(body_tree, x, z); ys = q[1] if q is not None else (verts[-1][1] if verts else -0.07)
         lift = 0.0002 if abs(tcol) == 1 else 0.0030 + 0.0022 * (1 - tcol * tcol)
-        verts.append((x, ys - lift, z)); uvs.append(((tcol + 1) / 2, 0.86 * (1 - ri / (ROWS - 1))))
+        lift *= 0.25 + 0.75 * float(smoothstep(Z_BOT + 0.03, Z_BOT + 0.11, z))      # flat at the bottom, so that the lapels cover the end of the tie
+        # Near the top, the tie leaves the chest and goes up into the knot. This joins the tie to the knot.
+        s_up = float(smoothstep(Z_TOP - 0.055, Z_TOP - 0.004, z)); y_knot = KNOT_Y - 0.0045 - 0.002 * (1 - tcol * tcol)
+        verts.append((x, (ys - lift) * (1 - s_up) + y_knot * s_up, z)); uvs.append(((tcol + 1) / 2, 0.86 * (1 - ri / (ROWS - 1))))
 for ri in range(ROWS - 1):
     for c in range(COLS - 1): faces.append((ri * COLS + c, ri * COLS + c + 1, (ri + 1) * COLS + c + 1, (ri + 1) * COLS + c))
 tie = new_object("Tie", verts, faces)
@@ -268,8 +278,23 @@ collar.data.materials.append(bpy.data.materials["Shirt"])
 m = collar.modifiers.new("Solidify", "SOLIDIFY"); m.thickness = 0.0018; m.offset = 1
 m = collar.modifiers.new("Subdivision", "SUBSURF"); m.levels = 1; m.render_levels = 2
 
+# ---------------------------------------------------------------- neck base: clean skin inside the collar
+# The AI neck has a rough lower edge. A smooth skin tube inside the collar covers that edge.
+NECK_COL = np.median(HCc[neck], axis=0)
+nb_mat = principled("Neck_Skin", tuple(float(x / 12.92 if x <= 0.04045 else ((x + 0.055) / 1.055) ** 2.4) for x in NECK_COL), 0.55,
+                    Subsurface_Weight=0.15, Subsurface_Radius=(0.9, 0.4, 0.25), Subsurface_Scale=0.006)
+verts, faces = [], []
+for kk in range(48):
+    phi = -math.pi + 2 * math.pi * kk / 48; sx, sy = math.sin(phi), -math.cos(phi); zt = collar_top(phi)
+    for grow, dz in ((-0.0050, 0.002), (-0.0030, -0.004), (-0.0030, -0.040)):
+        verts.append((CXc + (RXc + grow) * sx, CYc + (RYc + grow) * sy, zt + dz))
+for kk in range(48):
+    k2 = (kk + 1) % 48
+    for j in range(2): faces.append((kk * 3 + j, k2 * 3 + j, k2 * 3 + j + 1, kk * 3 + j + 1))
+nbase = new_object("Neck_Base", verts, faces); nbase.data.materials.append(nb_mat)
+
 # ---------------------------------------------------------------- tie knot: a tapered knot between the collar leaves
-kc = CXc; ky = CYc - RYc - 0.005
+kc = tie_centre(kz0); ky = KNOT_Y
 SEG, RINGS = 16, 7; kv, kf, kuv = [], [], []
 for ri in range(RINGS):
     tq = ri / (RINGS - 1); z = kz0 + (kz1 - kz0) * tq
@@ -287,7 +312,8 @@ knot = new_object("Tie_Knot", kv, kf)
 uvk = knot.data.uv_layers.new(name="UVMap")
 for loop in knot.data.loops: uvk.data[loop.index].uv = kuv[loop.vertex_index]
 knot.data.materials.append(tm)
-m = knot.modifiers.new("Subdivision", "SUBSURF"); m.levels = 1; m.render_levels = 2
+# Join the knot to the tie: one object.
+bpy.ops.object.select_all(action="DESELECT"); knot.select_set(True); tie.select_set(True); bpy.context.view_layer.objects.active = tie; bpy.ops.object.join()
 
 bpy.ops.wm.save_as_mainfile(filepath=out_path)
 print("SAVED", out_path)

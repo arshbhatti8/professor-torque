@@ -88,9 +88,11 @@ bm = bmesh.new(); bm.from_mesh(head.data); bm.faces.ensure_lookup_table()
 kill = []
 for f_ in bm.faces:
     c = f_.calc_center_median()
-    for L in lenses.values():
+    for side_, L in lenses.items():
         lx, lz = np.float64(c.x - L["cx"]), np.float64(c.z - L["cz"])
         if not inside_outline(L["a"], L["b"], lx, lz, 0.97): continue
+        # At the outer part of the lens, remove only surfaces that look to the front. The side of the face stays closed.
+        if side_ * lx > 0.45 * L["a"] and f_.normal.y > -0.45: continue
         # Remove the lens front, its back, and hidden inner surfaces. Go less deep near the rim, so that the side of the face stays.
         rim = max(abs(lx) / L["a"], abs(lz) / L["b"])
         if -0.012 < c.y - L["y"] < 0.0025 + 0.034 * max(0.0, 1 - rim) ** 0.7: kill.append(f_); break
@@ -104,6 +106,7 @@ lens_mat = principled("Glasses_Lens", (0.020, 0.016, 0.014), 0.05, Alpha=0.80, C
 skin_mat = principled("Eye_Socket_Skin", tuple(x * 0.92 for x in SKIN_LIN), 0.55, Subsurface_Weight=0.15, Subsurface_Radius=(0.9, 0.4, 0.25), Subsurface_Scale=0.006)
 lid_mat = principled("Eyelid_Inner", tuple(x * 0.45 for x in SKIN_LIN), 0.6)
 lash_mat = principled("Eyelash", srgb("#1A1210"), 0.5)
+rim_mat = principled("Glasses_Frame", srgb("#1C1512"), 0.22, Coat_Weight=0.5, Coat_Roughness=0.08)
 # Eye texture: pupil, iris and white, by the angle from the front of the eye.
 TW, TH = 256, 512; ang = (np.arange(TH) + 0.5) / TH * math.pi
 rowc = np.empty((TH, 3), dtype=np.float32)
@@ -144,6 +147,18 @@ for side, L in lenses.items():
             k2 = (k + 1) % NT; faces.append((1 + r_ * NT + k, 1 + (r_ + 1) * NT + k, 1 + (r_ + 1) * NT + k2, 1 + r_ * NT + k2))
     o = new_object("Lens." + nm, verts, faces); o.data.materials.append(lens_mat)
 
+    # Frame rim: a modelled ring with sharp edges around the lens. It covers the rough cut edge of the painted frame.
+    verts, faces = [], []
+    for k in range(NT):
+        th = 2 * math.pi * k / NT; xi_, zi_ = outline(a, b, th, 0.955); xo_, zo_ = outline(a, b, th, 1.135)
+        for (x_, z_, dy) in ((xi_, zi_, -0.0030), (xo_, zo_, -0.0030), (xo_, zo_, 0.0012), (xi_, zi_, 0.0012)):
+            verts.append((cx + x_, yl + dy + wrap(cx + x_), cz + z_))
+    for k in range(NT):
+        k2 = (k + 1) % NT
+        for q in range(4): faces.append((k * 4 + q, k * 4 + (q + 1) % 4, k2 * 4 + (q + 1) % 4, k2 * 4 + q))
+    o = new_object("Glasses_Rim." + nm, verts, faces, smooth=False); o.data.materials.append(rim_mat)
+    mbv = o.modifiers.new("Bevel", "BEVEL"); mbv.width = 0.0006; mbv.segments = 2
+
     # Eye socket: skin that goes back from the frame to the eyelids, with an almond opening for the eye.
     def eye_edge(th):
         c, s_ = math.cos(th), math.sin(th)
@@ -169,7 +184,21 @@ for side, L in lenses.items():
         k = poly.index // RS; r_ = poly.index % RS; th = 2 * math.pi * (k + 0.5) / NT
         if r_ == RS - 1: poly.material_index = 1                                  # the back edge of the eyelid
         elif r_ == 0 and 0.12 < th < math.pi - 0.12: poly.material_index = 2      # lash line on the upper eyelid
-    m = o.modifiers.new("Subdivision", "SUBSURF"); m.levels = 1; m.render_levels = 1
+    ec_ = np.array([ex, yl + SOCKET_DEPTH + 0.0018 + EYE_R + wrap(ex), ez])
+    o.shape_key_add(name="Basis"); kb = o.shape_key_add(name="blink")
+    for k in range(NT):                                      # blink: the upper eyelid goes down over the eye to the lower eyelid
+        th = 2 * math.pi * k / NT
+        if math.sin(th) <= 0.02: continue
+        xi, zi = eye_edge(th); xlow, zlow = eye_edge(-th)
+        dz0 = (zlow + 0.0004) - zi
+        for r_ in list(range(RS)) + [RS]:
+            t = 0.0 if r_ == RS else r_ / (RS - 1); f = (1 - t) ** 2.2
+            v = kb.data[k * R1 + r_]; p = np.array(v.co); p[2] += dz0 * f
+            dxs, dzs = p[0] - ec_[0], p[2] - ec_[2]; rr2 = EYE_R ** 2 - dxs ** 2 - dzs ** 2
+            if rr2 > 0:
+                y_surf = ec_[1] - math.sqrt(rr2) - (0.0009 if r_ != RS else -0.0015)
+                if p[1] > y_surf: p[1] = p[1] + (y_surf - p[1]) * min(1.0, f * 2.5)
+            v.co = p
 
     # Eyeball.
     ec = np.array([ex, yl + SOCKET_DEPTH + 0.0018 + EYE_R + wrap(ex), ez])
@@ -269,6 +298,28 @@ for i in range(8):
     for j in range(16): faces.append((i * 16 + j, i * 16 + (j + 1) % 16, (i + 1) * 16 + (j + 1) % 16, (i + 1) * 16 + j))
 tongue = new_object("Tongue", verts, faces); tongue.data.materials.append(principled("Tongue", srgb("#B8574F"), 0.4))
 head["mouth"] = [float(XC), float(y_lip), float(MOUTH_Z)]
+
+# ---------------------------------------------------------------- mouth shapes for speech (shape keys on the head)
+HPk = np.empty(len(head.data.vertices) * 3, dtype=np.float32); head.data.vertices.foreach_get("co", HPk); HPk = HPk.reshape(-1, 3).astype(np.float64)
+front_f = smoothstep(y_lip + 0.040, y_lip + 0.015, HPk[:, 1]) * (HPk[:, 2] > 1.52)
+head.shape_key_add(name="Basis")
+
+
+def corner_field(side, radius=0.022):
+    d2 = (HPk[:, 0] - (XC + side * (MOUTH_HW + 0.002))) ** 2 + (HPk[:, 2] - MOUTH_Z) ** 2
+    return np.exp(-d2 / radius ** 2) * front_f
+
+
+centre_f = np.exp(-((HPk[:, 0] - XC) ** 2 + (HPk[:, 2] - MOUTH_Z) ** 2) / 0.020 ** 2) * front_f
+for key, corner, centre in (("mouth_wide", (0.0050, 0.0025, 0.0005), (0, 0.0005, 0)),          # 'ee': corners out and back
+                            ("mouth_smile", (0.0042, 0.0015, 0.0052), (0, 0, 0.0004)),          # corners out and up
+                            ("mouth_o", (-0.0075, -0.0010, 0.0), (0, -0.0042, 0))):             # 'oo': corners in, lips to the front
+    D_ = np.zeros_like(HPk)
+    for side in (-1, 1):
+        g = corner_field(side)[:, None]; D_ += g * np.array([side * corner[0], corner[1], corner[2]])
+    D_ += centre_f[:, None] * np.array(centre)
+    kb = head.shape_key_add(name=key); kb.data.foreach_set("co", (HPk + D_).astype(np.float32).ravel())
+print("shape keys on the head:", [k.name for k in head.data.shape_keys.key_blocks])
 
 bpy.ops.wm.save_as_mainfile(filepath=out_path)
 print("SAVED", out_path)
